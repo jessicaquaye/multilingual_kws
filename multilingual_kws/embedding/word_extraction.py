@@ -23,19 +23,16 @@ def wordcounts(csvpath, skip_header=True, transcript_column=2):
     """count the frequencies of all words in a csv produced by
         https://github.com/mozilla/DeepSpeech/blob/master/bin/import_cv2.py
     """
-#     all_frequencies = Counter()
-#     with open(csvpath, "r") as fh:
-#         print ("got here")
-#         reader = csv.reader(fh, delimiter="\t")
-#         print(reader)
-    return
-#         if skip_header:
-#             next(reader)
-#         for ix, row in enumerate(reader):
-#             words = row[transcript_column].split()
-#             for w in words:
-#                 all_frequencies[w] += 1
-#     return all_frequencies
+    all_frequencies = Counter()
+    with open(csvpath, "r") as fh:
+        reader = csv.reader(fh, delimiter="\t")
+        if skip_header:
+            next(reader)
+        for ix, row in enumerate(reader):
+            words = row[transcript_column].split()
+            for w in words:
+                all_frequencies[w] += 1
+    return all_frequencies
 
 
 def generate_filemap(
