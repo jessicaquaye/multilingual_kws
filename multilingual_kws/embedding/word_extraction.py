@@ -26,6 +26,7 @@ def wordcounts(csvpath, skip_header=True, transcript_column=2):
     all_frequencies = Counter()
     with open(csvpath, "r") as fh:
         reader = csv.reader(fh, delimiter="\t")
+        print(reader)
         if skip_header:
             next(reader)
         for ix, row in enumerate(reader):
