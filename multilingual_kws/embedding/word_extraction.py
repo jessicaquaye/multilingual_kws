@@ -25,15 +25,17 @@ def wordcounts(csvpath, skip_header=True, transcript_column=2):
     """
     all_frequencies = Counter()
     with open(csvpath, "r") as fh:
+        print ("got here")
         reader = csv.reader(fh, delimiter="\t")
         print(reader)
-        if skip_header:
-            next(reader)
-        for ix, row in enumerate(reader):
-            words = row[transcript_column].split()
-            for w in words:
-                all_frequencies[w] += 1
-    return all_frequencies
+    return
+#         if skip_header:
+#             next(reader)
+#         for ix, row in enumerate(reader):
+#             words = row[transcript_column].split()
+#             for w in words:
+#                 all_frequencies[w] += 1
+#     return all_frequencies
 
 
 def generate_filemap(
